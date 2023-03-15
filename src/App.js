@@ -1,6 +1,7 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import NavBar from "./pages/NavBar";
+import { ReviewById } from "./components/ReviewById";
 import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
@@ -9,6 +10,8 @@ const App = () => {
       <h1>My App </h1>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/reviews/:review_id" element={<ReviewById />} />
+
         {/* <Route path="/topics" element={<Topics />} />
         <Route path="/about" element={<About />} /> */}
       </Routes>
