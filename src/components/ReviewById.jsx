@@ -1,9 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsOfReview, getSingleReview, patchVotes } from "../api";
+import {
+  getCommentsOfReview,
+  getSingleReview,
+  patchVotes,
+  patchVotesMinus,
+} from "../api";
 import PostComment from "./PostComment";
 import { UserContext } from "../contexts/LoggedInUserContext";
-
 
 export const ReviewById = () => {
   const { review_id } = useParams();
@@ -11,8 +15,8 @@ export const ReviewById = () => {
   const [comments, setComments] = useState([]);
   const [votes, setVotes] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasVoted, setHasVoted] = useState(false);
   const userValueFromContext = useContext(UserContext);
-
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
@@ -29,13 +33,25 @@ export const ReviewById = () => {
         setComments(data.comments);
       } else setComments([]);
     });
-  }, []);
+  }, [comments]);
 
   const upVote = () => {
-    setVotes((currVotes) => currVotes + 1);
-    patchVotes(review_id).catch((err) => {
+    if (!hasVoted) {
+      setHasVoted(true);
+      setVotes((currVotes) => currVotes + 1);
+      patchVotes(review_id).catch((err) => {
+        if (err) {
+          setVotes((currVotes) => currVotes - 1);
+        }
+      });
+    }
+  };
+  const downVote = () => {
+    setHasVoted(false);
+    setVotes((currVotes) => currVotes - 1);
+    patchVotesMinus(review_id).catch((err) => {
       if (err) {
-        setVotes((currVotes) => currVotes - 1);
+        setVotes((currVotes) => currVotes + 1);
       }
     });
   };
@@ -65,24 +81,32 @@ export const ReviewById = () => {
           <p>By {review.owner}</p>
           <span>
             <p>Votes: {votes}</p>
-            <button type="button" onClick={upVote}>
-              +
-            </button>
+            {!hasVoted ? (
+              <button type="button" onClick={upVote}>
+                +
+              </button>
+            ) : (
+              <button type="button" onClick={downVote}>
+                -
+              </button>
+            )}
           </span>
           <p>{formatDateFunc(review.created_at)}</p>
         </div>
         <div id="comments-container">
           <h3>Comments</h3>
           <PostComment addComment={addComment} review_id={review_id} />
-          {comments.map((comment) => {
-            console.log(comment)
+          {comments.length > 0 ? (comments.map((comment) => {
             return (
               <div className="comment-box" key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <p>{formatDateFunc(comment.created_at)}</p>
+                <p>{comment.author}</p>
+                <p>{comment.votes}</p>
               </div>
             );
-          })}
+          })):(<p>no comments avalible</p>)}
+          {}
         </div>
       </div>
     );
