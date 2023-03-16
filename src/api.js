@@ -57,3 +57,22 @@ export const postComment = (review_id, input) => {
 	  return data.users;
 	});
   };
+
+  
+export const patchVotesMinus = (review_id) => {
+  return ncGameApi
+    .patch(`/reviews/${review_id}`, { inc_votes: -1 })
+    .then(({ data }) => {
+      console.log(data, "patch minus votes")
+      return data;
+    });
+};
+
+
+export const getCategories = () => {
+  return ncGameApi.get("/categories").then(({ data }) => {
+    console.log(data, "data categories")
+
+    return data.categories;
+  });
+};

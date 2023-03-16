@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsOfReview, getSingleReview, patchVotes } from "../api";
 import PostComment from "./PostComment";
+import { UserContext } from "../contexts/LoggedInUserContext";
+
 
 export const ReviewById = () => {
   const { review_id } = useParams();
@@ -9,6 +11,8 @@ export const ReviewById = () => {
   const [comments, setComments] = useState([]);
   const [votes, setVotes] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const userValueFromContext = useContext(UserContext);
+
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
@@ -48,11 +52,7 @@ export const ReviewById = () => {
     });
     return format;
   };
-  //   const formattedDate = new Date(review.created_at).toLocaleString("en-US", {
-  //     month: "short",
-  //     day: "2-digit",
-  //     year: "numeric",
-  //   });
+
   if (isLoading) {
     return <h3>Loading content...</h3>;
   } else {
