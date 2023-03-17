@@ -69,3 +69,9 @@ export const getCategories = () => {
     return data.categories;
   });
 };
+
+export const getReviewsByCategory = (category) => {
+  return ncGameApi.get(`/reviews?category=${category}`).then(({data}) => {
+    return data.reviews.results;
+  });
+};
