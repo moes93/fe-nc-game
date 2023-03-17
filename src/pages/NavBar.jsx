@@ -8,7 +8,7 @@ export default function NavBar() {
 			<Link to={"/"}>LoginPage </Link>
 			<Link to={"/homepage"}>HomePage </Link>
 			<Link to={"/reviews"}>Reviews </Link>
-			{/* <Link to={"/users"}>Users </Link>  */}
+			<Link to={"/categories"}>Categories </Link> 
 		</nav>
 	);
 }
