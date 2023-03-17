@@ -18,3 +18,10 @@ const ncGameApi = axios.create({
 	  return data.reviews;
 	});
   };
+
+  export const getCategories = () => {
+	return ncGameApi.get("/categories").then(({ data }) => {
+		console.log(data, "data api categories")
+	  return data.categories;
+	});
+  };
