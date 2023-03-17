@@ -1,4 +1,4 @@
-body {
+ body {
   background-color: rgb(170, 179, 185);
 }
 
@@ -8,7 +8,14 @@ body {
   margin: 10px;
 }
 
-img {
-  width: 70%;
+.comment-box{
+  border-color: black;
+  border-radius: 2em;
+  border-width: 0.5em;
+  border-style: solid;
 }
+
+/* img {
+  width: 70%;
+}  */
 
