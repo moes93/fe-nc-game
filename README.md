@@ -1,6 +1,6 @@
 # Northcoders Games 🎮
 
-🎰 Hello fellow gamers and welcome to my Games Website! 🎰
+💫 Hello fellow gamers and welcome to my Games Website! 
 
 I have developed a social games content rating, and discussion website. Northcoders Games has game reviews which are divided into categories.
 Each review has user curated ratings and can be up or down voted using the API. Users can also add and delete comments about an review.
@@ -11,7 +11,7 @@ This Website is built by using my back-end API which can be found 🔗 [here](ht
 
 Important Notes: You will need to have Node.js v19.3.0 or later!
 
-## ♟️ Getting started
+## 🕹️ Getting started
 
 First you need to clone this repository to your local machine by using 🔗 `git clone https://github.com/moes93/fe-nc-game`
 
@@ -33,7 +33,7 @@ If you like to use Bootstrap styling you could install the following dependencie
 
 `react-bootstrap`
 
-## 🪁 Setup Redirects
+## 🎯 Setup Redirects
 
 Add a file, ``_redirects`` (no file extension) to your public directory. This file should contain the redirect rule: ``/*  /index.html 200``. This is telling Netlify "if a request comes in to any endpoint on our base url - serve our index.html page and give a 200 status". We put this in the public directory to ensure that Webpack includes this file in the production build of the app.
 
