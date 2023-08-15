@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Northcoders Games 🎮
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🎰 Hello fellow gamers and welcome to my Games Website! 🎰
 
-## Available Scripts
+I have developed a social games content rating, and discussion website. Northcoders Games has game reviews which are divided into categories.
+Each review has user curated ratings and can be up or down voted using the API. Users can also add and delete comments about an review.
 
-In the project directory, you can run:
+You can also access my Games website live by clicking on this link 🔗 [here](https://msncgames.netlify.app/) or by copying the following url to your browser 🔗 `https://msncgames.netlify.app/`
 
-### `npm start`
+This Website is built by using my back-end API which can be found 🔗 [here](https://github.com/moes93/mohamed-nc-games) or by copying the following url to your browser 🔗 `https://github.com/moes93/mohamed-nc-games`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Important Notes: You will need to have Node.js v19.3.0 or later!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ♟️ Getting started
 
-### `npm test`
+First you need to clone this repository to your local machine by using 🔗 `git clone https://github.com/moes93/fe-nc-game`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Next we need to install the following dependencies by using `npm install `:
 
-### `npm run build`
+`react`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`react-dom`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`react-router-dom`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`react-scripts`
 
-### `npm run eject`
+`axios`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+If you like to use Bootstrap styling you could install the following dependencies by using `npm install `:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`bootstrap`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`react-bootstrap`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🪁 Setup Redirects
 
-## Learn More
+Add a file, ``_redirects`` (no file extension) to your public directory. This file should contain the redirect rule: ``/*  /index.html 200``. This is telling Netlify "if a request comes in to any endpoint on our base url - serve our index.html page and give a 200 status". We put this in the public directory to ensure that Webpack includes this file in the production build of the app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🏆 Hosting and deploying the website
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To host your website and render it online you can use a free service on 🔗 `https://www.netlify.com/`. Deploy an new website by connecting your git-hub repository.
 
-### Code Splitting
+Please use the following command to create a production version of your app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`npm run build`
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Finally you can deploy your website on netlify dashboard.
